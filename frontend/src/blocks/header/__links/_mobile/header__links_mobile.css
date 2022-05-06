@@ -1,0 +1,13 @@
+@media screen and (max-width: 600px) {
+	.header__links_mobile {
+		justify-content: center;
+		flex-direction: column;
+		min-height: 142px;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border-bottom: solid 1px rgba(84,84,84,0.7);
+		display: none;
+	}
+}
+

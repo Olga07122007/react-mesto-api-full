@@ -1,0 +1,18 @@
+.header__link {
+	margin: 0 0 18px 0;
+	padding: 0;
+	font-size: 18px;
+	align-self: center;
+	color: #fff;
+	background: none;
+	border: none;
+	border-radius: 0;
+	outline: none;
+}
+
+@media screen and (max-width: 800px) {
+	.header__link {
+		font-size: 14px;
+	}
+}
+

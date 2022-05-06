@@ -1,0 +1,7 @@
+@media screen and (max-width: 600px) {
+	.header__logo-container {
+		min-height: 83px;
+		display: flex;
+		justify-content: space-between;
+	}
+}

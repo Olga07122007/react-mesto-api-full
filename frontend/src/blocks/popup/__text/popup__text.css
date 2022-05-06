@@ -1,0 +1,21 @@
+.popup__text {
+	border: none;
+	font-size: 14px;
+	line-height: 1.2;
+	width: 358px;
+	height: 27px;
+	color: #000;
+	padding: 0;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.popup__text:focus {
+	outline: none;
+}
+
+@media screen and (max-width: 1000px) {
+	.popup__text {
+		width: 238px;
+	}
+}
+

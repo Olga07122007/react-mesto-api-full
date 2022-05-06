@@ -1,0 +1,6 @@
+@media screen and (max-width: 600px) {
+	.header__button_mobile {
+		margin: 0;
+		padding: 0;
+	}
+}

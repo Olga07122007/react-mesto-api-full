@@ -40,6 +40,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // подключаем логгер запросов
 app.use(requestLogger);
 
+// краш-тест для ревью
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 // роуты, не требующие авторизации
 app.post('/signin', loginValidation, login);
 app.post('/signup', createUserValidation, createUser);

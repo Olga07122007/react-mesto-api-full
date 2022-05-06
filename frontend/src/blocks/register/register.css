@@ -1,0 +1,13 @@
+.register {
+	display: flex;
+	margin: 0 auto;
+	width: 69%;
+	min-height: 744px;
+	align-self: center;
+}
+
+@media screen and (max-width: 800px) {
+	.register {
+		width: 100%;
+	}
+}

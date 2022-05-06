@@ -1,0 +1,7 @@
+.element__title-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 24px 0 29px;
+}
