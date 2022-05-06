@@ -2,6 +2,8 @@ const express = require('express');
 
 const mongoose = require('mongoose');
 
+const cors = require('cors');
+
 const { errors } = require('celebrate');
 
 const bodyParser = require('body-parser');
@@ -25,8 +27,13 @@ const { createUserValidation, loginValidation } = require('./middlewares/validat
 const { PORT = 3000 } = process.env;
 const app = express();
 
+// добавляем переменные из файла .env в process.env
+require('dotenv').config();
+
+// подключаем базу данных
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

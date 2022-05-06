@@ -12,7 +12,7 @@ module.exports.createCard = (req, res, next) => {
   Card.create({ name, link, owner: req.user._id })
     .then((card) => {
       if (card) {
-        res.status(200).send({ data: card });
+        res.status(200).send(card);
       } else {
         throw new NotFoundError('Что-то пошло не так');
       }
@@ -28,7 +28,6 @@ module.exports.createCard = (req, res, next) => {
 // все карточки
 module.exports.getCards = (req, res, next) => {
   Card.find({})
-    .populate('owner')
     .populate('likes')
     .then((cards) => res.send(cards))
     .catch((err) => next(err));
@@ -45,7 +44,7 @@ module.exports.deleteCard = (req, res, next) => {
         }
         return Card.findByIdAndRemove(req.params.cardId)
           .then(() => {
-            res.status(200).send({ data: card });
+            res.status(200).send(card);
           });
       }
       throw new NotFoundError('Передан несуществующий _id карточки');
@@ -65,11 +64,10 @@ module.exports.likeCard = (req, res, next) => {
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )
-    .populate('owner')
     .populate('likes')
     .then((card) => {
       if (card) {
-        res.status(200).send({ data: card });
+        res.status(200).send(card);
       } else {
         throw new NotFoundError('Карточка с указанным _id не найдена');
       }
@@ -92,11 +90,10 @@ module.exports.dislikeCard = (req, res, next) => {
     { $pull: { likes: req.user._id } },
     { new: true },
   )
-    .populate('owner')
     .populate('likes')
     .then((card) => {
       if (card) {
-        res.status(200).send({ data: card });
+        res.status(200).send(card);
       } else {
         throw new NotFoundError('Карточка с указанным _id не найдена');
       }
