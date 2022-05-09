@@ -2,11 +2,13 @@ const express = require('express');
 
 const mongoose = require('mongoose');
 
-const cors = require('cors');
+// const cors = require('cors'); // зависимость
 
 const { errors } = require('celebrate');
 
 const bodyParser = require('body-parser');
+
+const cors = require('./middlewares/cors'); // cors
 
 const usersRouter = require('./routes/users');
 
@@ -33,14 +35,16 @@ require('dotenv').config();
 // подключаем базу данных
 mongoose.connect('mongodb://localhost:27017/mestodb');
 
-app.use(cors());
+// app.use(cors());
+app.use(cors);
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // подключаем логгер запросов
 app.use(requestLogger);
 
-// краш-тест для ревью
+// краш-тест
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
